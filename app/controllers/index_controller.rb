@@ -1,12 +1,11 @@
 class IndexController < ApplicationController
 
 
-def index
-  # home page route
-end
+  def index
+    # home page route
+  end
 
-def create
-  # route for watson form submission
-end
-
+  def create
+    # route for watson form submission
+  end
 end
