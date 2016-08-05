@@ -1,4 +1,41 @@
-<h1>Hello World</h1>
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+  <div class="navbar-header">
+    <div class="line-up">
+      <%=image_tag("logo1") %>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="jumbotron">
+  <div class="container">
+    <p class="jumbo-shout">
+      <h1 style="color: white;">How Do You Measure Up?</h1>
+    </p>
+  </div>
+</div>
+<div class="famous-figures" id="famous-figures-container">
+<div class="col-md-3">
+  <%=image_tag("LDV", size:"125", class: "img-responsive img-thumbnail img-circle")%>
+  -Leonardo Da Vinci
+</div>
+<div class="col-md-3">
+<%=image_tag("MLK", size:"125", class: "img-responsive img-thumbnail img-circle")%>
+  -Martin Luther King, Jr.
+</div>
+<div class="col-md-3">
+  <%=image_tag("MA", size:"125", class: "img-responsive img-thumbnail img-circle")%>
+  -Maya Angelou
+</div>
+<div class="col-md-3">
+<%=image_tag("MG", size:"125", class: "img-responsive img-thumbnail img-circle")%>
+  -Mahatma Gandhi
+</div>
+</div>
+<div class="quote-form" id="user-quote">
 <form action="/do-it" method="POST">
+  <input type="text" name="quote" placeholder="Type your quote here!">
+  <br>
   <input type="submit" name="Go" value="Go">
 </form>
+</div>
