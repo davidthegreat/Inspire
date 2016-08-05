@@ -68,3 +68,17 @@ body {
   height: 100%;
   display: inline-block;
 }
+
+.result {
+  margin-top: 5%;
+  display: none;
+}
+
+.new-quote, .new-graph, .right-arrow {
+  text-align: center;
+  height: 125px;
+}
+
+.new-quote, .right-arrow {
+  padding-top: 3%;
+}

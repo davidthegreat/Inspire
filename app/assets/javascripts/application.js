@@ -27,7 +27,8 @@ var eventListeners = function(){
 var sendForm = function(){
 	$('.quote-form').on('submit', function(event){
 	event.preventDefault();
-		var data = $(this).serialize()
+		var input = $('#submitted-quote').val();
+		var data = $(this).serialize();
 		$.ajax({
 			url: 'https://watson-api-explorer.mybluemix.net/alchemy-api/calls/html/HTMLGetTextSentiment',
 			type: 'POST',
@@ -35,9 +36,17 @@ var sendForm = function(){
 				html: data,
 				apikey: '',
 				outputMode: 'JSON' }
-		}).done(function(response){
-			console.log(response)
+		}).done(function(response){  
+			var photoLinks = ['http://i.imgur.com/PDpXKn2.png', 'http://i.imgur.com/wQPNc3w.png', 'http://i.imgur.com/fDZmMSd.png', 'http://i.imgur.com/LW8ALXj.png', 'http://i.imgur.com/Pq9k8nv.png', 'http://i.imgur.com/K5Ayac8.png', 'http://i.imgur.com/1izp2hi.png', 'http://i.imgur.com/PDpXKn2.png' ]
+			var rand = photoLinks[Math.floor(Math.random() * photoLinks.length)];
+			$('<img class="img-responsive img-thumbnail img-circle" width="125" height="125" src="' + rand + ' "/> ').appendTo('.new-graph');
 			$('.quote-form').hide();
+			$('.new-quote').append('"' + input + '"')
+			$('.result').css("display", "inline-block")
+			// we don't have time to get the core functionality linked up using AJAX, so we're hard-coding some graphs we've pre-made
+			// Another route would be to not use AJAX and load a cloned page on a new route with the actual script for drawing the canvas
+			// graph running as soon as the doc loads, but even that is far from the intended idea functionality, but this should work for presenting 
+			// our idea.
 		})
 	})
-} // end of sendForm
+}

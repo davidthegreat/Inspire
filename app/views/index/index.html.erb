@@ -10,7 +10,8 @@
 <div class="jumbotron">
   <div class="container">
     <p class="jumbo-shout">
-      <h1 style="color: white;">How Do You Measure Up?</h1>
+      <h1 style="color: white;">How Do You Inspire?</h1>
+      <h4 style="color: white;">Submit something you think is inspiring below!</h4>
     </p>
   </div>
 </div>
@@ -21,7 +22,7 @@
         <%=image_tag("LDV", size:"125", class: "img-responsive img-thumbnail img-circle")%><br><strong>Leonardo DaVinci</strong>
       </div>
       <div class="graph">
-      <%=image_tag("97_Orng", size:"125", class: "img-responsive img-thumbnail img-circle")%>
+        <%=image_tag("97_Orng", size:"125", class: "img-responsive img-thumbnail img-circle")%>
       </div>
     </div>
     <div class="quote-row">
@@ -85,11 +86,15 @@
 </div>
 <div class="col-md-12" id="user-quote">
   <form class="quote-form" action="/do-it" method="POST">
-    <textarea type="text" name="quote" placeholder="Type something positive here!" rows="4" cols="40"></textarea>
+    <textarea type="text" name="quote" placeholder="Type something positive here!" rows="4" cols="40" id="submitted-quote"></textarea>
     <br>
     <input type="submit" name="Go" value="How Inspiring Am I?">
   </form>
 </div>
-<div class="result col-md-12">
-  
+<div class="container">
+  <div class="result col-md-12">
+    <div class="col-md-4 new-quote"><strong>Your Quote:</strong><br></div>
+    <div class="col-md-4 right-arrow"><%=image_tag("right_arrow", size:"50")%></div>
+    <div class="col-md-4 new-graph"></div>
+  </div>
 </div>
