@@ -1,3 +1,6 @@
-Score: <%= @results["score"] %>
+Sentiment:
+Score: <%= @sentiment["score"].to_f * 100 %>
 <br>
-Type: <%= @results["type"] %>
+Type: <%= @sentiment["type"] %>
+<br>
+

@@ -17,24 +17,28 @@
 <div class="famous-figures" id="famous-figures-container">
 <div class="col-md-3">
   <%=image_tag("LDV", size:"125", class: "img-responsive img-thumbnail img-circle")%>
-  -Leonardo Da Vinci
+  positive  0.971588
+  The noblest pleasure is the joy of understanding. -Leonardo Da Vinci
 </div>
 <div class="col-md-3">
 <%=image_tag("MLK", size:"125", class: "img-responsive img-thumbnail img-circle")%>
-  -Martin Luther King, Jr.
+  positive  0.783355
+  The time is always right to do what is right. -Martin Luther King, Jr.
 </div>
 <div class="col-md-3">
   <%=image_tag("MA", size:"125", class: "img-responsive img-thumbnail img-circle")%>
-  -Maya Angelou
+  positive  0.737717
+  It's one of the greatest gifts you can give yourself, to forgive. Forgive everybody.  -Maya Angelou
 </div>
 <div class="col-md-3">
 <%=image_tag("MG", size:"125", class: "img-responsive img-thumbnail img-circle")%>
-  -Mahatma Gandhi
+  positive  0.89525
+  Happiness is when what you think, what you say, and what you do are in harmony.  -Mahatma Gandhi
 </div>
 </div>
 <div class="quote-form" id="user-quote">
 <form action="/do-it" method="POST">
-  <input type="text" name="quote" placeholder="Type your quote here!">
+  <textarea type="text" name="quote" placeholder="Type your quote here!" rows="4" cols="40"></textarea>
   <br>
   <input type="submit" name="Go" value="Go">
 </form>

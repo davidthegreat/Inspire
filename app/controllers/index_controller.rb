@@ -7,11 +7,15 @@ class IndexController < ApplicationController
 
   def watson
     # route for watson form submission
-    if params[:text]
-      @text = params[:text]
+    if params[:quote]
+      # p params[:quote]
+      # session[:quote] = params[:quote]
+      @text = params[:quote]
     else
       @text = "Neutral"
     end
-    @results = AlchemyAPI.search(:sentiment_analysis, text: @text)
+
+    @sentiment = AlchemyAPI.search(:sentiment_analysis, text: @text)
+    @concept = AlchemyAPI.search(:concept_tagging, text: @text)
   end
 end
