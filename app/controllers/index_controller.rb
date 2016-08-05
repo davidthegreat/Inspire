@@ -16,6 +16,6 @@ class IndexController < ApplicationController
     end
 
     @sentiment = AlchemyAPI.search(:sentiment_analysis, text: @text)
-    @concept = AlchemyAPI.search(:concept_tagging, text: @text)
+    # @concept = AlchemyAPI.search(:concept_tagging, text: @text)
   end
 end
