@@ -39,4 +39,32 @@ body {
 
 .quote-form {
   text-align: center;
+  margin-top: 4%;
+}
+
+.person-container {
+  width: 100%;
+  height: 100%;
+  display:table;
+  text-align: center;
+  position: relative;
+}
+
+.port-graph-row {
+  display: table-row;
+}
+
+.portrait, .graph {
+  display: table-cell;
+  width:50%;
+}
+
+.quote-row {
+  display:table-row;
+}
+
+.quote {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
 }

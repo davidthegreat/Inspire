@@ -1,10 +1,10 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
-  <div class="navbar-header">
-    <div class="line-up">
-      <%=image_tag("logo1") %>
+    <div class="navbar-header">
+      <div class="line-up">
+        <%=image_tag("logo1") %>
+      </div>
     </div>
-  </div>
   </div>
 </div>
 <div class="jumbotron">
@@ -14,32 +14,79 @@
     </p>
   </div>
 </div>
-<div class="famous-figures" id="famous-figures-container">
 <div class="col-md-3">
-  <%=image_tag("LDV", size:"125", class: "img-responsive img-thumbnail img-circle")%>
-  positive  0.971588
-  The noblest pleasure is the joy of understanding. -Leonardo Da Vinci
+  <div class="person-container">
+    <div class="port-graph-row">
+      <div class="portrait">
+        <%=image_tag("LDV", size:"125", class: "img-responsive img-thumbnail img-circle")%><br><strong>Leonardo DaVinci</strong>
+      </div>
+      <div class="graph">
+      <%=image_tag("97_Orng", size:"125", class: "img-responsive img-thumbnail img-circle")%>
+      </div>
+    </div>
+    <div class="quote-row">
+      <div class="quote">
+        "The noblest pleasure is the joy of understanding."
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 <div class="col-md-3">
-<%=image_tag("MLK", size:"125", class: "img-responsive img-thumbnail img-circle")%>
-  positive  0.783355
-  The time is always right to do what is right. -Martin Luther King, Jr.
+  <div class="person-container">
+    <div class="port-graph-row">
+      <div class="portrait">
+        <%=image_tag("MLK", size:"125", class: "img-responsive img-thumbnail img-circle")%><br><strong>Martin Luther King, Jr.</strong>
+      </div>
+      <div class="graph">
+        <%=image_tag("78_Orng", size:"125", class: "img-responsive img-thumbnail img-circle")%>
+      </div>
+    </div>
+    <div class="quote-row">
+      <div class="quote">
+        "The time is always right to do what is right."
+      </div>
+    </div>
+  </div>
 </div>
 <div class="col-md-3">
-  <%=image_tag("MA", size:"125", class: "img-responsive img-thumbnail img-circle")%>
-  positive  0.737717
-  It's one of the greatest gifts you can give yourself, to forgive. Forgive everybody.  -Maya Angelou
+  <div class="person-container">
+    <div class="port-graph-row">
+      <div class="portrait">
+        <%=image_tag("MA", size:"125", class: "img-responsive img-thumbnail img-circle")%><br><strong>Maya Angelou</strong>
+      </div>
+      <div class="graph">
+        <%=image_tag("74_Orng", size:"125", class: "img-responsive img-thumbnail img-circle")%>
+      </div>
+    </div>
+    <div class="quote-row">
+      <div class="quote">
+        "It's one of the greatest gifts you can give yourself, to forgive. Forgive everybody."
+      </div>
+    </div>
+  </div>
 </div>
 <div class="col-md-3">
-<%=image_tag("MG", size:"125", class: "img-responsive img-thumbnail img-circle")%>
-  positive  0.89525
-  Happiness is when what you think, what you say, and what you do are in harmony.  -Mahatma Gandhi
+  <div class="person-container">
+    <div class="port-graph-row">
+      <div class="portrait">
+        <%=image_tag("MG", size:"125", class: "img-responsive img-thumbnail img-circle")%><br><strong>Mahatma Gandhi</strong>
+      </div>
+      <div class="graph">
+        <%=image_tag("90_Orng", size:"125", class: "img-responsive img-thumbnail img-circle")%>
+      </div>
+    </div>
+    <div class="quote-row">
+      <div class="quote">
+        "Happiness is when what you think, what you say, and what you do are in harmony."
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-<div class="quote-form" id="user-quote">
-<form action="/do-it" method="POST">
-  <textarea type="text" name="quote" placeholder="Type your quote here!" rows="4" cols="40"></textarea>
-  <br>
-  <input type="submit" name="Go" value="Go">
-</form>
+<div class="quote-form col-md-12" id="user-quote">
+  <form action="/do-it" method="POST">
+    <textarea type="text" name="quote" placeholder="Type something positive here!" rows="4" cols="40"></textarea>
+    <br>
+    <input type="submit" name="Go" value="How Inspiring Am I?">
+  </form>
 </div>
