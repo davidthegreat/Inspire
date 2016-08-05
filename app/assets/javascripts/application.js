@@ -15,3 +15,26 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap.min
+$(document).ready(function(){
+	eventListeners();
+}); // end of doc ready
+
+var eventListeners = function(){
+	sendForm();
+}
+
+
+var sendForm = function(){
+	$('.quote-form').on('submit', function(event){
+	event.preventDefault();
+		var data = $(this).serialize()
+		$.ajax({
+			url: 'https://watson-api-explorer.mybluemix.net/alchemy-api/calls/html/HTMLGetTextSentiment',
+			type: 'POST',
+			html: data,
+			outputMode: 'JSON'
+		}).done(function(response){
+			console.log(response)
+		})
+	})
+} // end of sendForm
