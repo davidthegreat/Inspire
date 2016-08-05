@@ -37,6 +37,7 @@ var sendForm = function(){
 				outputMode: 'JSON' }
 		}).done(function(response){
 			console.log(response)
+			$('.quote-form').hide();
 		})
 	})
 } // end of sendForm
