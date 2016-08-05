@@ -1,0 +1,38 @@
+* {
+  font-family: Helvetica;
+}
+
+div {
+  /*outline: red 0.25px solid;*/
+}
+
+body {
+  padding-top: 70px;
+  padding-bottom: 20px;
+}
+
+.white-title {
+  color: white;
+}
+
+.jumbotron {
+  padding: 10%;
+  height: 400px;
+  text-align: center;
+  font-weight: bold;
+  background: url("jumbo_bg1.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.line-up {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 15px;
+}
+
+.jumbo-shout {
+  padding-top: 10%;
+}
