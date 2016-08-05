@@ -1,2 +1,12 @@
-# R_U_Inspiring_DBCHackathon
-A web app that uses the Alchemy API / IBM Watson to analyze whether your inspirational tidbit measures up against figures in history.
+# Inspire
+A 12 hour mini-hackathon project that uses the Alchemy API / IBM Watson to analyze whether your inspirational tidbit "measures up" against figures in history.
+
+## Our Team
+- [Justin Cadbury Wong](https://github.com/justincadburywong)
+- [David Ramirez](https://github.com/davidthegreat)
+- [Jonathan Hall](https://github.com/jlhall)
+
+## Our Concept
+The idea melds the concept of using a machine learning api and random human content to produce interesting and thought-provoking results. Your inspirational quote is evaluated for positivity and scored by Alchemy; the result is charted to allow you to compare against great figures in history.
+
+## Screenshots
