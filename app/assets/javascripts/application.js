@@ -31,8 +31,10 @@ var sendForm = function(){
 		$.ajax({
 			url: 'https://watson-api-explorer.mybluemix.net/alchemy-api/calls/html/HTMLGetTextSentiment',
 			type: 'POST',
-			html: data,
-			outputMode: 'JSON'
+			formData: {
+				html: data,
+				apikey: '',
+				outputMode: 'JSON' }
 		}).done(function(response){
 			console.log(response)
 		})
