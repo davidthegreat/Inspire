@@ -7,15 +7,16 @@ class IndexController < ApplicationController
 
   def watson
     # route for watson form submission
-    if params[:quote]
-      # p params[:quote]
-      # session[:quote] = params[:quote]
-      @text = params[:quote]
+    if request.xhr?
+      input = request.raw_post
+      formatted_input = input.gsub("quote=","").gsub("%20", " ")
+      alchemyapi = AlchemyAPI.new()
+      @sentiment = alchemyapi.sentiment("text", formatted_input)
+      respond_to do |format|
+        format.js { render :json => @sentiment.to_json }
+      end
     else
-      @text = "Neutral"
+      redirect_to root_path
     end
-
-    @sentiment = AlchemyAPI.search(:sentiment_analysis, text: @text)
-    # @concept = AlchemyAPI.search(:concept_tagging, text: @text)
   end
 end
