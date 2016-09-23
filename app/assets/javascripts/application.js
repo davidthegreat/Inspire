@@ -23,10 +23,39 @@ var eventListeners = function(){
 	sendForm();
 }
 
+var canvasDraw = function(response) {
+	var canvas = document.getElementById("can");
+	var ctx = canvas.getContext("2d");
+	var lastend = 0;
+	var canvasData = response['docSentiment']
+	var score = Math.floor(canvasData['score'] * 100);
+	var scoreDifference = Math.floor(100 - score);
+	var data = [score, scoreDifference]; // more values means add more colors to myColor
+	console.log(data)
+	var myTotal = 0; // Automatically calculated
+	var myColor = ['#F2B02B', 'white']; // Colors of each slice
+	for (var e = 0; e < data.length; e++) {
+		myTotal += data[e];
+	}
+	for (var i = 0; i < data.length; i++) {
+		ctx.fillStyle = myColor[i];
+		ctx.beginPath();
+		ctx.moveTo(canvas.width / 2, canvas.height / 2);
+	  // Arc Parameters: x, y, radius, startingAngle (radians), endingAngle (radians), antiClockwise (boolean)
+	  ctx.arc(canvas.width / 2, canvas.height / 2, canvas.height / 2, lastend, lastend + (Math.PI * 2 * (data[i] / myTotal)), false);
+	  ctx.lineTo(canvas.width / 2, canvas.height / 2);
+	  ctx.fill();
+	  lastend += Math.PI * 2 * (data[i] / myTotal);
+	  ctx.font = "20px Helvetica";
+	  ctx.fillText(score + "%", 25, 90);
+	}
+}
+
 var sendForm = function() {
 	$('.quote-form').on('submit', function(e){
 		e.preventDefault();
 		var input = $('#submitted-quote').val();
+		var formatted_input = input.replace("quote=","").replace("%20","")
 		var data = $(this).serialize();
 		console.log(data)
 		$.ajax({
@@ -37,38 +66,9 @@ var sendForm = function() {
 			contentType: 'json',
 			dataType: 'json'
 		}).done(function(response) {
-			console.log(response);
-			$('#user-quote').toggle();
-			$('.new-graph').html("<canvas id='can' width='200' height='200' />")
-			console.log("canvas added to page");
-			var canvas = document.getElementById("can");
-			console.log(canvas);
-			console.log("canvas confirmed added and selected")
-			var ctx = canvas.getContext("2d");
-			var lastend = 0;
-			var canvasData = JSON.parse(response);
-			// console.log(canvasData);
-			var score = canvasData['score'];
-			// console.log(score)
-			var scoreDifference = 1 - canvasData['score'];
-			var data = [score, scoreDifference]; // more values means add more colors to myColor
-			var myTotal = 0; // Automatically calculated
-			var myColor = ['blue', 'white']; // Colors of each slice
-			for (var e = 0; e < data.length; e++) {
-				myTotal += data[e];
-			}
-			for (var i = 0; i < data.length; i++) {
-				ctx.fillStyle = myColor[i];
-				ctx.beginPath();
-				ctx.moveTo(canvas.width / 2, canvas.height / 2);
-			  // Arc Parameters: x, y, radius, startingAngle (radians), endingAngle (radians), antiClockwise (boolean)
-			  ctx.arc(canvas.width / 2, canvas.height / 2, canvas.height / 2, lastend, lastend + (Math.PI * 2 * (data[i] / myTotal)), false);
-			  ctx.lineTo(canvas.width / 2, canvas.height / 2);
-			  ctx.fill();
-			  lastend += Math.PI * 2 * (data[i] / myTotal);
-			  ctx.font = "20px Helvetica";
-			  ctx.fillText(score + "%", 25, 90);
-			}
+			$('#user-quote').empty()
+			$('#user-quote').html("<div class='col-md-4' id='new-quote'></div><div class='col-md-4' id='right-arrow'></div><div class='col-md-4'><canvas id='can' width='125' height='125' /></div>")
+			canvasDraw(response);
 		})
 	})
 }
