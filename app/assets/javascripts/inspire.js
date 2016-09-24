@@ -13,10 +13,10 @@ var canvasDraw = function(response) {
   var canvasData = response['docSentiment']
   var score = Math.floor(canvasData['score'] * 100);
   var scoreDifference = Math.floor(100 - score);
-  var data = [score, scoreDifference]; // more values means add more colors to myColor
+  var data = [score, scoreDifference]; // more values => add more colors to myColor
   console.log(data)
-  var myTotal = 0; // Automatically calculated
-  var myColor = ['#F2B02B', 'white']; // Colors of each slice
+  var myTotal = 0; // Automatically incremented below, take care changing
+  var myColor = ['#F2B02B', 'white']; // These equate to the colors of each "slice"
   for (var e = 0; e < data.length; e++) {
     myTotal += data[e];
   }
@@ -51,34 +51,8 @@ var sendForm = function() {
     }).done(function(response) {
       $('#user-quote').empty()
       $('#user-quote').html("<div class='col-md-4' id='new-quote'></div><div class='col-md-4' id='right-arrow'></div><div class='col-md-4'><canvas id='can' width='125' height='125' /></div>")
+      // extra divs for eventual styling
       canvasDraw(response);
     })
   })
 }
-
-// we originally didn't have time to get the core functionality linked up using AJAX, so we had hard-coded some graphs we'd pre-made
-// Another route would be to not use AJAX and load a cloned page on a new route with the actual script for drawing the canvas
-// graph running as soon as the doc loads, but even that is far from the intended idea functionality, but this worked for presenting our idea.
-
-// var sendForm = function(){
-//  $('.quote-form').on('submit', function(event){
-//  event.preventDefault();
-//    var input = $('#submitted-quote').val();
-//    var data = $(this).serialize();
-//    $.ajax({
-//      url: 'https://watson-api-explorer.mybluemix.net/alchemy-api/calls/html/HTMLGetTextSentiment',
-//      type: 'POST',
-//      formData: {
-//        html: data,
-//        apikey: '',
-//        outputMode: 'JSON' }
-//    }).done(function(response){  
-//      var photoLinks = ['http://i.imgur.com/PDpXKn2.png', 'http://i.imgur.com/wQPNc3w.png', 'http://i.imgur.com/fDZmMSd.png', 'http://i.imgur.com/LW8ALXj.png', 'http://i.imgur.com/Pq9k8nv.png', 'http://i.imgur.com/K5Ayac8.png', 'http://i.imgur.com/1izp2hi.png', 'http://i.imgur.com/PDpXKn2.png' ]
-//      var rand = photoLinks[Math.floor(Math.random() * photoLinks.length)];
-//      $('<img class="img-responsive img-thumbnail img-circle" width="125" height="125" src="' + rand + ' "/> ').appendTo('.new-graph');
-//      $('.quote-form').hide();
-//      $('.new-quote').append('"' + input + '"')
-//      $('.result').css("display", "inline-block")
-//    })
-//  })
-// }
